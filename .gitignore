@@ -1,0 +1,12 @@
+# Backend
+Backend/node_modules/
+
+# Frontend
+Frontend/node_modules/
+
+# Env files
+.env
+.env.local
+
+# Logs
+*.log
