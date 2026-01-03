@@ -77,23 +77,7 @@ Role-based access control (frontend + backend)
 
 📂 Project Structure (Simplified)
 
- task-manager-mern/
-│
-├── backend/
-│   ├── controllers/
-│   ├── models/
-│   ├── routes/
-│   ├── middleware/
-│   ├── config/
-│   └── index.js
-│
-├── frontend/
-│   ├── src/
-│   │   ├── pages/
-│   │   ├── components/
-│   │   └── api/
-│
-└── README.md
+
 
 
 
