@@ -7,7 +7,7 @@ This is a Simple Task Management System built using the MERN stack as part of an
 The application supports role-based access where admins manage users and tasks, and normal users manage only their assigned tasks.
 
 
-.
+
 
 🚀 Tech Stack
 
