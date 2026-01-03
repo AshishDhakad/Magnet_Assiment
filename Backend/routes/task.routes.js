@@ -10,6 +10,7 @@ router.put("/:id", auth, ctrl.updateTask);
 router.delete("/:id", auth, ctrl.deleteTask);
 router.patch("/:id/assign", auth, admin, ctrl.assignTask);
 router.patch("/:id/status", auth, ctrl.updateStatus);
+router.put("/:id", auth, admin, ctrl.updateTask);
 
 router.get("/:id", auth, ctrl.getTaskById);
 

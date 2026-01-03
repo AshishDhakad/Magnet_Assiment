@@ -76,24 +76,32 @@ exports.updateStatus = async (req, res) => {
 
 
 exports.updateTask = async (req, res) => {
-  const { title, description, dueDate, priority } = req.body;
-
   const task = await Task.findById(req.params.id);
 
-  if (!task) return res.status(404).json({ msg: "Task not found" });
+  if (!task) {
+    return res.status(404).json({ msg: "Task not found" });
+  }
+
+  // 🔐 ADMIN CAN EDIT ANY TASK
+  if (req.user.role === "admin") {
+    Object.assign(task, req.body);
+    await task.save();
+    return res.json(task);
+  }
 
   
-  if (task.assignedTo.toString() !== req.user.id)
-    return res.status(403).json({ msg: "Not authorized" });
+  if (
+    task.assignedTo.toString() !== req.user.id
+  ) {
+    return res.status(403).json({ msg: "Not allowed" });
+  }
 
-  task.title = title;
-  task.description = description;
-  task.dueDate = dueDate;
-  task.priority = priority;
-
+  Object.assign(task, req.body);
   await task.save();
+
   res.json(task);
 };
+
 
 
 
